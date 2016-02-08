@@ -21,4 +21,14 @@
         {{ post.created_at }}
     </div>
 
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse{{post.id}}" aria-expanded="false" aria-controls="collapseExample">
+        Show comments
+    </button>
+
+    <div class="collapse" id="collapse{{post.id}}">
+        <div ng-repeat="comment in post.comments" 
+            ng-include="'partials/comment.html'">
+        </div>
+    </div>
+
 </div>

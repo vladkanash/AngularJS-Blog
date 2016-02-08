@@ -18,21 +18,13 @@ mainApp.controller("newPostController", function($scope, $http, $interval, dateF
       return dateFilter(new Date(), "dd.MM.yyyy HH:m:ss");
    }
 
-   //temp
-   function getNewId() {
-      return 42;
-   }
-
    timeoutId = $interval(function() {
       $scope.date = getDate();
    }, 1000);
 
    $scope.submit = function() {
 
-
-
       var new_post = {
-         "id" : getNewId(),
          "subject" : $scope.subject,
          "text" : $scope.text,
          "author" : $scope.author,
