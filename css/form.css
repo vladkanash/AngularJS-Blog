@@ -1,0 +1,20 @@
+#formContainer
+{
+    position:fixed;
+    left: 40%;
+    top: 0;
+    float: right;
+    width: 50%;
+    background: #E7E7E7;
+    border: 1px solid darkgrey;
+}
+#form
+{
+    display:none;
+    padding: 60px 40px 40px;
+}
+
+#text
+{
+    resize: none;
+}

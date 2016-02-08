@@ -1,0 +1,12 @@
+[
+	{
+		"id":1,
+		"subject":"Text Example",
+		"text":"\"On the one hand, TEXT may be defined as 'any sequence of sentences having a certain coherence,' and in this weak sense of the term each folk-tale is a text. On the other hand text may be defined more rigorously as 'any unchangeable sequence of sentences which has a strong cohesion and the unchangeable character of which is related to a value system of some sort.'\"\r\n(Thomas G. Pavel, \"Some Remarks on Narrative Grammars,\" in Linguistic Perspectives on Literature, ed. by M. K. L. Ching et al. Taylor & Francis, 1980)",
+		"created_at":"12.13.2015 12:45",
+		"author":"Me"
+	},
+
+	{
+		"id":2,
+		"subject":"PostPostPost","text":"My second post goes here","created_at":"12.29.2015 15:08","author":"Vlad Kanash"},{"id":4,"subject":"ffff","text":"fff","created_at":"12.29.2015 15:12","author":"ffff"},{"id":5,"subject":"ffff","text":"fff","created_at":"12.29.2015 15:12","author":"ffff"},{"id":6,"subject":"vbvbvb","text":"bv","created_at":"12.29.2015 15:13","author":"vbvbv"}]

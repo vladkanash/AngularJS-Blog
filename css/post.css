@@ -1,0 +1,30 @@
+.blogPost
+{
+    padding: 40px;
+    border-bottom: 1px solid darkgrey;
+}
+
+.blogText
+{
+    padding: 20px;
+}
+
+.blogFooter
+{
+    color: dimgrey;
+    font-style: italic;
+    float: right;
+}
+
+.blogTitle
+{
+    display: inline-block;
+}
+
+.delete
+{
+    padding: 10px;
+    float: right;
+    display: inline-block;
+    opacity: 0.8;
+}
