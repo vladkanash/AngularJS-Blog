@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="formContainer">
+                <h2>Create new post</h2>
+                <form name="post_form" novalidate>
+                    <fieldset class="form-group">
+                        <label for="subject">Subject</label>
+                        <input ng-model="subject" name="subject" type="text" class="form-control" id="subject" maxlength="30" placeholder="Post subject" required>
+                        <span style = "color:red" ng-show = "post_form.subject.$dirty && 
+                        post_form.subject.$invalid || formError">
+                        <span ng-show = "post_form.subject.$error.required || formError">Subject is required.</span>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label for="text">Text</label>
+                        <textarea ng-model="text" name="text" class="form-control" id="text" rows="5" placeholder="Your post goes here" required></textarea>
+                        <span style = "color:red" ng-show = "post_form.text.$dirty && 
+                        post_form.text.$invalid || formError">
+                        <span ng-show = "post_form.text.$error.required || formError">Text is required.</span>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label for="author">Author</label>
+                        <input ng-model="author" name="author" type="text" class="form-control" id="author" maxlength="40" placeholder="Enter your name">
+                    </fieldset>
+
+                    <button ng-disabled="post_form.subject.$dirty && post_form.subject.$invalid || post_form.text.$dirty && post_form.text.$invalid || formError" ng-click="submit()" 
+                    type="submit" id="submit_btn" class="btn btn-primary">Submit post</button>
+                    <div id="creation_date">
+                        Post was created at: {{ date }}
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
