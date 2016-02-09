@@ -25,10 +25,30 @@
         Show comments
     </button>
 
-    <div class="collapse" id="collapse{{post.id}}">
+    <div class="collapse comment_container" id="collapse{{post.id}}">
         <div ng-repeat="comment in post.comments" 
             ng-include="'partials/comment.html'">
         </div>
+
+        <form name="comment_form" novalidate>
+                    
+            <fieldset class="form-group">
+                <label for="text">Text</label>
+                <textarea ng-model="text" name="text" class="form-control" id="text" rows="5" placeholder="Your comment goes here" required></textarea>
+                <span style = "color:red" ng-show = "comment_form.text.$dirty && 
+                comment_form.text.$invalid">
+                <span ng-show = "comment_form.text.$error.required">Text is required.</span>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="author">Author</label>
+                <input ng-model="author" name="author" type="text" class="form-control" id="author" maxlength="40" placeholder="Enter your name">
+            </fieldset>
+
+            <button ng-disabled="comment_form.$invalid" ng-click="submit()" 
+            type="submit" id="submit_btn" class="btn btn-primary">Comment</button>
+
+        </form>
     </div>
 
 </div>

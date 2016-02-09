@@ -1,9 +1,36 @@
-mainApp.controller("postController", function($scope, $http, URL) {
-   var url = URL.postsURL;
+'use_strict'
 
-   $http.get(url).success( function(response) {
-      $scope.posts = response;
-   });
+function getDate(filter) {
+  return filter(new Date(), "dd.MM.yyyy HH:m:ss");
+}
+
+
+mainApp.controller("postController", function($scope, $http, dateFilter, URL) {
+ var url = URL.postsURL;
+ var comment_url = URL.submitCommentURL;
+
+ $http.get(url).success( function(response) {
+    $scope.posts = response;
+
+
+ $scope.submit = function() {
+
+    var new_comment = {
+       "text" : $scope.text,
+       "author" : $scope.author,
+       "created_at" : getDate(dateFilter) 
+    }
+    
+    alert("Your comment is submitted! " + new_comment.text);
+
+    $http({
+        url: url,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        data: new_comment
+    });
+  }
+ });
 });
 
 
@@ -11,15 +38,11 @@ mainApp.controller("newPostController", function($scope, $http, $interval, dateF
    var url = URL.submitURL;
    var formError = true;
 
-   $scope.date = getDate();
+   $scope.date = getDate(dateFilter);
    $scope.success = false;
 
-   function getDate() {
-      return dateFilter(new Date(), "dd.MM.yyyy HH:m:ss");
-   }
-
    timeoutId = $interval(function() {
-      $scope.date = getDate();
+      $scope.date = getDate(dateFilter);
    }, 1000);
 
    $scope.submit = function() {
@@ -28,10 +51,10 @@ mainApp.controller("newPostController", function($scope, $http, $interval, dateF
          "subject" : $scope.subject,
          "text" : $scope.text,
          "author" : $scope.author,
-         "created_at" : getDate(), 
+         "created_at" : getDate(dateFilter), 
       }
 
-      alert("Your post is submitted!" + new_post.text);
+      alert("Your post is submitted! " + new_post.text);
       $scope.success = true;
       $http({
           url: url,
