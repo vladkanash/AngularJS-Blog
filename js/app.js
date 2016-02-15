@@ -4,6 +4,7 @@ angular.module("mainApp").constant('URL', {
    "postsURL" : "storage.json",
    "submitURL" : "backend/addPost",
    "deleteURL" : "backend/deletePost"
+   "submitCommentURL": "backend/addComment"
 });
 
 mainApp.config(['$routeProvider', function($routeProvider) {

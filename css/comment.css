@@ -7,7 +7,19 @@
 
 .comment_element
 {
-	border-width: 1px;
-	border-color: dimgrey;
 	background-color: white;
+/*	padding: 5%;*/
+}
+
+.commentText
+{
+    padding: 20px;
+}
+
+.commentFooter
+{
+    color: dimgrey;
+    font-style: italic;
+    float: right;
+    font-size: 12px;
 }

@@ -1,7 +1,7 @@
 'use_strict'
 
 function getDate(filter) {
-  return filter(new Date(), "dd.MM.yyyy HH:m:ss");
+  return filter(new Date(), "dd.MM.yyyy HH:MM:ss");
 }
 
 
@@ -9,27 +9,26 @@ mainApp.controller("postController", function($scope, $http, dateFilter, URL) {
  var url = URL.postsURL;
  var comment_url = URL.submitCommentURL;
 
- $http.get(url).success( function(response) {
-    $scope.posts = response;
-
-
- $scope.submit = function() {
+  $scope.submit_comment = function() {
 
     var new_comment = {
-       "text" : $scope.text,
-       "author" : $scope.author,
+       "text" : this.text,
+       "author" : this.author,
        "created_at" : getDate(dateFilter) 
     }
     
     alert("Your comment is submitted! " + new_comment.text);
 
     $http({
-        url: url,
+        url: comment_url,
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         data: new_comment
     });
   }
+
+ $http.get(url).success( function(response) {
+    $scope.posts = response;
  });
 });
 
