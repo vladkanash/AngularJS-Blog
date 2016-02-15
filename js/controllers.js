@@ -14,10 +14,11 @@ mainApp.controller("postController", function($scope, $http, dateFilter, URL) {
     var new_comment = {
        "text" : this.text,
        "author" : this.author,
-       "created_at" : getDate(dateFilter) 
+       "created_at" : getDate(dateFilter),
+       "post_id": this.post.id 
     }
     
-    alert("Your comment is submitted! " + new_comment.text);
+    alert("Your comment is submitted! " + new_comment.text + " at post #" + this.post.id);
 
     $http({
         url: comment_url,
@@ -55,12 +56,12 @@ mainApp.controller("newPostController", function($scope, $http, $interval, dateF
 
       alert("Your post is submitted! " + new_post.text);
       $scope.success = true;
-      $http({
-          url: url,
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          data: new_post
+      var res = $http.post(url, new_post);
+
+      res.success(function(data, status, headers, config){
+        alert("Successful submission!");
       });
+
    }
 
 });

@@ -3,7 +3,7 @@ var mainApp = angular.module("mainApp", ['ngRoute']);
 angular.module("mainApp").constant('URL', {
    "postsURL" : "storage.json",
    "submitURL" : "backend/addPost",
-   "deleteURL" : "backend/deletePost"
+   "deleteURL" : "backend/deletePost",
    "submitCommentURL": "backend/addComment"
 });
 
