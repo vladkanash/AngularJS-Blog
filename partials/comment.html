@@ -1,4 +1,4 @@
-<div class="well comment_element">
+<div class="well comment_element" >
 
     <div class="commentText">
         <p>
@@ -10,5 +10,10 @@
         {{ comment.author }}
         {{ comment.created_at }}
     </div>
+
+    <button type="button"
+    		ng-click="delete_comment(comment.id)"  
+    		id="alert_btn" 
+    		class="btn btn-primary">Delete</button>
 
 </div>

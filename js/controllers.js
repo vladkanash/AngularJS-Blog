@@ -4,10 +4,13 @@ function getDate(filter) {
   return filter(new Date(), "dd.MM.yyyy HH:MM:ss");
 }
 
-
 mainApp.controller("postController", function($scope, $http, dateFilter, URL) {
  var url = URL.postsURL;
  var comment_url = URL.submitCommentURL;
+
+  $http.get(url).success( function(response) {
+    $scope.posts = response;
+ });
 
   $scope.submit_comment = function() {
 
@@ -28,9 +31,10 @@ mainApp.controller("postController", function($scope, $http, dateFilter, URL) {
     });
   }
 
- $http.get(url).success( function(response) {
-    $scope.posts = response;
- });
+  $scope.delete_comment = function(postId) {
+    alert("comment deleted #" + postId);
+  }
+
 });
 
 
