@@ -1,18 +1,18 @@
 'use_strict'
 
 function getDate(filter) {
-  return filter(new Date(), "dd.MM.yyyy HH:MM:ss");
+  return filter(new Date(), "dd.MM.yyyy HH:mm:ss");
 }
 
 mainApp.controller("postController", function($scope, $http, dateFilter, URL) {
  var url = URL.postsURL;
- var comment_url = URL.submitCommentURL;
 
-  $http.get(url).success( function(response) {
+  $http.get(url).success(function(response) {
     $scope.posts = response;
  });
 
   $scope.submit_comment = function() {
+    var url = URL.submitCommentURL;
 
     var new_comment = {
        "text" : this.text,
@@ -32,6 +32,8 @@ mainApp.controller("postController", function($scope, $http, dateFilter, URL) {
   }
 
   $scope.delete_comment = function(postId) {
+    var url = URL.deleteCommentURL;
+
     alert("comment deleted #" + postId);
   }
 
